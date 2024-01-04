@@ -1,56 +1,62 @@
-import clsx from 'clsx';
-import Heading from '@theme/Heading';
-import styles from './styles.module.css';
+import clsx from "clsx";
+import Heading from "@theme/Heading";
+import styles from "./styles.module.css";
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  img: string;
+  link: string;
   description: JSX.Element;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: "Build & Deploy",
+    img: require("@site/static/img/constructocat2.jpg").default,
+    link: "/docs/category/data-structures",
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Get to know the build and deploy processes for everything related with
+        Imera Mobile.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: "Data Structures",
+    img: require("@site/static/img/socialite.jpg").default,
+    link: "/docs/category/data-structures",
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Get an insight in how the different data structures look and work
+        together.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: "Collaboration",
+    img: require("@site/static/img/collabocats.jpg").default,
+    link: "/docs/category/data-structures",
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Get to know the different coding conventions, how to setup your
+        development environment and the rest of the team.
       </>
     ),
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({ title, img, link, description }: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
-      </div>
+    <div className={clsx("col col--4")}>
+      <a href={link} className={styles.featureLink}>
+        <div className="text--center">
+          <img className={styles.featureSvg} src={img} />
+        </div>
+        <div className="text--center padding-horiz--md">
+          <Heading as="h3">{title}</Heading>
+          <p>{description}</p>
+        </div>
+      </a>
     </div>
   );
 }
